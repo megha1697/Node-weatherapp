@@ -10,7 +10,13 @@ const forecast = (latitude, longitude,callback) => {
             callback('Unable to find location. Try another search' , undefined)
     }else{
             const weather = body.current.weather_descriptions[0]
-            callback(undefined, weather + ' It is currently '+body.current.temperature + ' degrees out. But it feels like ' + body.current.feelslike + " degrees.")
+            const is_day = body.current.is_day
+            if(is_day === 'yes'){
+                greet = 'Good Morning!!'
+            }else{
+                greet = 'Good noon!!'
+            }
+            callback(undefined,"Hi "+greet+","+ weather + ' It is currently '+body.current.temperature + ' degrees out. But it feels like ' + body.current.feelslike + " degrees. Humidity here is "+ body.current.humidity)
         } 
 })
 }
