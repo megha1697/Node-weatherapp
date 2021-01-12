@@ -12,11 +12,11 @@ const forecast = (latitude, longitude,callback) => {
             const weather = body.current.weather_descriptions[0]
             const is_day = body.current.is_day
             if(is_day === 'yes'){
-                greet = 'Good Morning!!'
+                greet = 'Good Morning:)! '
             }else{
-                greet = 'Good noon!!'
+                greet = 'Good night:)! '
             }
-            callback(undefined,"Hi "+greet+","+ weather + ' It is currently '+body.current.temperature + ' degrees out. But it feels like ' + body.current.feelslike + " degrees. Humidity here is "+ body.current.humidity)
+            callback(undefined,"Hi "+greet+", Climate here is "+weather +". With Humidity of "+body.current.humidity+ ' It is currently '+body.current.temperature + ' degrees out. But it feels like ' + body.current.feelslike + " degrees. " )
         } 
 })
 }
